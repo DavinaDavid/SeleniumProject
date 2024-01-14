@@ -13,9 +13,7 @@
     <artifactId>selenium-java</artifactId>
     <version>4.16.1</version>
   </dependency>
-
-
-
+    
     <!-- https://mvnrepository.com/artifact/junit/junit -->
     <dependency>
       <groupId>junit</groupId>
