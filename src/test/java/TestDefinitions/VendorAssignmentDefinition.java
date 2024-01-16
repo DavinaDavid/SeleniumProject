@@ -30,7 +30,7 @@ public class VendorAssignmentDefinition {
         createOrderLocators = new CreateOrderLocators(driverhooks.getDriver());
 
     }
-    @Then("open Admin Dashboard")
+    @Then("open Dashboard")
     public void Login(){
         loginLocators.GetLoginBtn().click();
         WebDriverWait wait = new WebDriverWait(driverhooks.getDriver(), Duration.ofSeconds(120));
@@ -40,7 +40,7 @@ public class VendorAssignmentDefinition {
 
     @Given("Search Client Order")
     public void SearchOrder(){
-       adminloc.SearchBar();
+       adminloc.SearchClientOrder();
     }
 
 

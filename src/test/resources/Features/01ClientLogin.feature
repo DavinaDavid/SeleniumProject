@@ -1,4 +1,4 @@
-Feature: Client Login
+Feature: Client Logins and Create Order
   Testing login functionality
 
 #  Scenario Outline: Test for Un-Successful Login -Invalid Informations

@@ -25,7 +25,7 @@ public class VendorAssignmentLocators {
     }
 
 
-    public void SearchBar(){
+    public void SearchClientOrder(){
         WebElement clickOrdersFromActionBar = driver.findElement(By.cssSelector("ul > li:nth-child(2)"));
         clickOrdersFromActionBar.click();
         WebElement findSearchBar = driver.findElement(By.linkText("Search Orders"));

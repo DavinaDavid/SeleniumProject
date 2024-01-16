@@ -46,14 +46,8 @@ private WebDriverhooks driverhooks;
     @Then("open Client Dashboard")
     public void Login(){
         loginloc.GetLoginBtn().click();
-
-//        WebDriverWait wait = new WebDriverWait(driverhooks.getDriver(), Duration.ofSeconds(120));
-//        wait.until(ExpectedConditions.urlContains("Dashboard.aspx"));
-
         String expectedURL = "https://testazure5.spurams.com/LenderDashboard.aspx";
         String actualURL = driverhooks.getDriver().getCurrentUrl();
-//        WebDriverWait wait = new WebDriverWait(driverhooks.getDriver(), Duration.ofSeconds(120));
-//        wait.until(ExpectedConditions.urlContains("Dashboard.aspx"));
         Assert.assertNotEquals("Invalid Credentials plz Retry Login", actualURL, expectedURL);
 
         Assert.assertEquals("Successful Login, Welcome to Dashboard!", actualURL, expectedURL);
