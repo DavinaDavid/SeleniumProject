@@ -1,4 +1,4 @@
-Feature: Login
+Feature: Client Login
   Testing login functionality
 
 #  Scenario Outline: Test for Un-Successful Login -Invalid Informations

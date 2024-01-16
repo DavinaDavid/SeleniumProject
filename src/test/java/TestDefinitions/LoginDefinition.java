@@ -2,6 +2,7 @@ package TestDefinitions;
 
 import Pages.LoginLocators;
 import WebDriverHooks.WebDriverhooks;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,8 +10,11 @@ import io.cucumber.java.en.When;
 import net.bytebuddy.implementation.bind.annotation.Super;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.annotation.concurrent.GuardedBy;
+import java.time.Duration;
 
 public class LoginDefinition{
 
@@ -42,8 +46,15 @@ private WebDriverhooks driverhooks;
     @Then("open Client Dashboard")
     public void Login(){
         loginloc.GetLoginBtn().click();
+
+//        WebDriverWait wait = new WebDriverWait(driverhooks.getDriver(), Duration.ofSeconds(120));
+//        wait.until(ExpectedConditions.urlContains("Dashboard.aspx"));
+
         String expectedURL = "https://testazure5.spurams.com/LenderDashboard.aspx";
         String actualURL = driverhooks.getDriver().getCurrentUrl();
+//        WebDriverWait wait = new WebDriverWait(driverhooks.getDriver(), Duration.ofSeconds(120));
+//        wait.until(ExpectedConditions.urlContains("Dashboard.aspx"));
+        Assert.assertNotEquals("Invalid Credentials plz Retry Login", actualURL, expectedURL);
 
         Assert.assertEquals("Successful Login, Welcome to Dashboard!", actualURL, expectedURL);
     }

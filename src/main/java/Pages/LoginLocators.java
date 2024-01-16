@@ -9,13 +9,9 @@ public class LoginLocators {
     public WebDriver driver;
 
     public LoginLocators(WebDriver driver){
+
         this.driver = driver;
     }
-
-//    public void LoadDriver(){
-//        driver = new ChromeDriver();
-//        driver.manage().window().maximize();
-//    }
 
     public void GetURL(){
         driver.get("https://testazure5.spurams.com");
