@@ -158,7 +158,6 @@ public class CreateOrderLocators {
     public void selectPaymentMethod(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.tagName("body")));
-      //  element.click();
         WebElement selectPayment = driver.findElement(By.xpath("//label[text()='Invoice']"));
       //  WebElement selectPay = driver.findElement(By.cssSelector("input#ctl00_cphBody_rdoPaymentMethods_0[value='invoice']"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",selectPayment);
@@ -191,16 +190,12 @@ public class CreateOrderLocators {
      //  return myOrderNumber;
     }
 
-//    public String SendOrderNo(){
-//        return AppraisalNumber;
-//    }
 
     public void SignOut(){
         WebElement clickSettingBtn = driver.findElement(By.cssSelector("ul#nav.vl-nav.dropdown li.settingpos"));
         clickSettingBtn.click();
         WebElement pressSignout = driver.findElement(By.linkText("Sign out"));
         pressSignout.click();
-                //a[@id='ctl00_TopMenu1_LoginView1_LoginStatus1']
 
     }
 

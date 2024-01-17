@@ -41,6 +41,7 @@ public class VendorAssignmentDefinition {
     @Given("Search Client Order")
     public void SearchOrder(){
        adminloc.SearchClientOrder();
+       System.out.println("Order Found");
     }
 
 

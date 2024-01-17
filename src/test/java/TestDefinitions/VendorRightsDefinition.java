@@ -34,10 +34,31 @@ public class VendorRightsDefinition {
         vendorLoc.SearchAssignedOrder();
     }
 
-    @When("Vendor Choose to Accept Order")
+    @And("Vendor Choose to Accept Order")
     public void AcceptOrder(){
         vendorLoc.ChooseAcceptfromAction();
         vendorLoc.FindAcceptBtn();
+        System.out.println("Order Accepted");
     }
+
+   @Then("Vendor sets Inspection")
+     public void SetInspection(){
+        vendorLoc.SelectInspectionDate();
+         System.out.println("Inspection Scheduled");
+
+    }
+
+    @And("Marked Order as Inspected")
+    public void MarkInspection(){
+        vendorLoc.MarkInspectionCompleted();
+        System.out.println("Inspected!");
+    }
+
+    @And("Vendor submits Appraisal Report")
+    public void SubmitAppraisalReport(){
+        vendorLoc.UploadAppraisalReport();
+        System.out.println("File Submitted");
+    }
+
 
 }
