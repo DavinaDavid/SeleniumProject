@@ -91,7 +91,7 @@ public class VendorRightsLocators {
         wait.until(ExpectedConditions.urlContains("SubmitAppraisal.aspx"));
 
         //Set Path of XML Report
-        String reportlocation = "src/main/resources/Reports/SampleReport.xml";
+        String reportlocation = "src/main/resources/SampleDocuments/SampleReport.xml";
         WebElement uploadFile = driver.findElement(By.id("ctl00_cphBody_fuAppraisalXMLFile"));
        // uploadFile.click();
         String filePath = Paths.get(reportlocation).toAbsolutePath().toString();
