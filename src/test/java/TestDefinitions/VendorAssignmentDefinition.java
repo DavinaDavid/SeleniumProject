@@ -30,10 +30,10 @@ public class VendorAssignmentDefinition {
         createOrderLocators = new CreateOrderLocators(driverhooks.getDriver());
 
     }
-    @Then("open Dashboard")
+    @Then("click Login to access user Dashboard")
     public void Login(){
         loginLocators.GetLoginBtn().click();
-        WebDriverWait wait = new WebDriverWait(driverhooks.getDriver(), Duration.ofSeconds(120));
+        WebDriverWait wait = new WebDriverWait(driverhooks.getDriver(), Duration.ofSeconds(60));
         wait.until(ExpectedConditions.urlContains("Dashboard.aspx"));
         System.out.println("I am on URL: "+ driverhooks.getDriver().getCurrentUrl());
     }

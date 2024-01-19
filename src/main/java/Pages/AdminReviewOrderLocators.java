@@ -18,6 +18,9 @@ public class AdminReviewOrderLocators {
     }
 
     public void ChooseReviewReportfromAction(){
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        wait.until(ExpectedConditions.urlContains("ViewAppraisal.aspx"));
         WebElement reviewOrderAction = driver.findElement(By.linkText("Actions"));
         reviewOrderAction.click();
         WebElement reviewOrderActionItem = driver.findElement(By.linkText("Review Appraisal Report(s)"));
@@ -26,13 +29,12 @@ public class AdminReviewOrderLocators {
         myCreateOrderData.LargeScrolling();
 
         //Press Yes to Accept Report
-        WebElement pressYes = driver.findElement(By.cssSelector("input#ctl00_cphBody_rdoLstAcceptReject_0"));
-        pressYes.click();
+        WebElement yesAcceptReport = driver.findElement(By.cssSelector("input#ctl00_cphBody_rdoLstAcceptReject_0"));
+        yesAcceptReport.click();
 
-        System.out.println("Yes is pressed");
-     //   myCreateOrderData.LargeScrolling();
+        System.out.println("Yes is selected, to Accept Report");
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(60));
        WebElement checkMarkComplete =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ctl00_cphBody_chkMarkComplete']")));
         checkMarkComplete.click();
 
@@ -41,8 +43,8 @@ public class AdminReviewOrderLocators {
         myCreateOrderData.LargeScrolling();
        // checkMarkComplete.click();
 
-        WebElement OrderCompleted = driver.findElement(By.cssSelector("input#ctl00_cphBody_btnSubmit"));
-        OrderCompleted.click();
+        WebElement CompleteOrder = driver.findElement(By.cssSelector("input#ctl00_cphBody_btnSubmit"));
+        CompleteOrder.click();
         System.out.println("Your Order is Successfully Completed");
     }
 }

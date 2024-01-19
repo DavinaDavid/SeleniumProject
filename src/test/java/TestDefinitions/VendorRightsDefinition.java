@@ -29,32 +29,32 @@ public class VendorRightsDefinition {
       //  createOrderLocators = new CreateOrderLocators(driverhooks.getDriver());
     }
 
-    @Given("Search Assigned Order")
+    @Given("user looks for Assigned Order")
     public void getSearchedOrder(){
         vendorLoc.SearchAssignedOrder();
     }
 
-    @And("Vendor Choose to Accept Order")
+    @And("Order is Accepted by Vendor")
     public void AcceptOrder(){
         vendorLoc.ChooseAcceptfromAction();
         vendorLoc.FindAcceptBtn();
         System.out.println("Order Accepted");
     }
 
-   @Then("Vendor sets Inspection")
+   @Then("Vendor sets Inspection for Property Investigation")
      public void SetInspection(){
         vendorLoc.SelectInspectionDate();
          System.out.println("Inspection Scheduled");
 
     }
 
-    @And("Marked Order as Inspected")
+    @And("Mark Inspection as done")
     public void MarkInspection(){
         vendorLoc.MarkInspectionCompleted();
         System.out.println("Inspected!");
     }
 
-    @And("Vendor submits Appraisal Report")
+    @And("Vendor attaches Appraisal Report")
     public void SubmitAppraisalReport(){
         vendorLoc.UploadAppraisalReport();
         System.out.println("File Submitted");

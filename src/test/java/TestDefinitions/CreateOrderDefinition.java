@@ -24,7 +24,7 @@ public class CreateOrderDefinition {
         createOrderloc.LoadDashboard();
     }
 
-    @And("Client clicks login button from Dashboard")
+    @When("Client choose to Create Order from Dashboard")
     public void ClickLoginFromDashboard() {
         createOrderloc.GetCreateBtnFromDashboard().click();
         //Select Appraisal OrderType
@@ -32,50 +32,54 @@ public class CreateOrderDefinition {
     }
 
 
-    @When("Select Residential as Order Type")
+    @Given("Residential Order Type is selected")
     public void SelectResidentialOT() {
         createOrderloc.SelectResidentialOT().click();
         System.out.println("Residential OT selected");
     }
 
 
-    @And("client selects its branch")
+    @When("client selects it Branch")
     public void SelectClientBranch() {
         createOrderloc.SelectClientBranch().click();
     }
 
 
-    @And("client selects transaction type")
+    @And("Transaction and Loan type is selected")
     public void SelectTransactions() {
         createOrderloc.SelectTransaction().click();
         System.out.println("Transaction Selected");
-    }
 
-    @And("client selects loan Type")
-    public void SelectLoanType() {
         createOrderloc.SelectLoanType().click();
         System.out.println("LoanType Selected");
+
     }
 
+//    @And("Loan type is selected")
+//    public void SelectLoanType(){
+//        createOrderloc.SelectLoanType().click();
+//        System.out.println("LoanType Selected");
+//
+//    }
 
-    @And("client enters loan Number {string}")
+    @And("Loan number is provided {string}")
     public void EnterLoanNumber(String LoanNo) {
         WebElement myLoanNo = createOrderloc.AddLoanNumber();
         myLoanNo.sendKeys(LoanNo);
         System.out.println("LoanNumber Entered");
-        createOrderloc.Scrolldown();
+       // createOrderloc.Scrolldown();
     }
 
-    @And("Client provides Borrower Info {string}, {string}")
+    @And("Borrower Information added {string}, {string}")
     public void EnterBorrowerInfo(String BorrowerName, String BorrowerEmail) {
-        //  createOrderloc.Scrolldown();
+        createOrderloc.Scrolldown();
         createOrderloc.getBorrowerInfo(BorrowerName, BorrowerEmail);
         System.out.println("Borrower Information Provided");
         createOrderloc.Scrolldown();
 
     }
 
-    @And("Client selects PropertyType")
+    @And("Property Type is chosen")
     public void SelectPropertyType() {
         createOrderloc.getPropertyType().click();
         System.out.println("Property Selected");
@@ -83,7 +87,7 @@ public class CreateOrderDefinition {
 
     }
 
-    @And("Client Enters Complete Property Address {string}, {string}, {string}, {string}")
+    @And("Property Address Details are Provided as {string}, {string}, {string}, {string}")
     public void EnterPropertyAddress(String street, String city, String state, String zipcode) {
         //  createOrderloc.Scrolldown();
         createOrderloc.PropertyAddress(street, city, state, zipcode);
@@ -91,23 +95,14 @@ public class CreateOrderDefinition {
         createOrderloc.Scrolldown();
     }
 
-    @And("Client selects the Product")
+    @And("Product is chosen")
     public void SelectProduct() {
         createOrderloc.LargeScrolling();
         createOrderloc.getProducts().click();
         System.out.println("Product Selected");
     }
 
-    @And("Client appends its comment with the default message {string}")
-    public void AddClientComments(String appendedText){
-        createOrderloc.LargeScrolling();
-        createOrderloc.SelectClientComment(appendedText);
-        System.out.println("Client Comments Appended");
-
-    }
-
-
-    @And("Select any Supporting Document")
+    @And("select any Supporting Document")
     public void SupportingDocSelection() {
        // createOrderloc.LargeScrolling();
         createOrderloc.selectSupportingDoc();
@@ -122,22 +117,20 @@ public class CreateOrderDefinition {
     }
 
 
-    @And("clients selects Payment Method")
+    @Then("client makes Payment")
     public void SelectedPayment() {
-     //   createOrderloc.Scrolldown();
-       // createOrderloc.LargeScrolling();
         createOrderloc.selectPaymentMethod();
         System.out.println("Payment Selected");
     }
 
-    @And("Client confirms Order Creation")
+    @And("Order Confirmation is made")
     public void CreateOrder(){
         createOrderloc.getConfirmOrder();
         System.out.println("Yahoo! Order Created Successfully");
         System.out.println(driverhooks.getDriver().getCurrentUrl());
     }
 
-    @Then("Get Client Order Number")
+    @And("Order is Created and Viewed")
     public void GetMyOrderNo(){
         createOrderloc.getAppraisalNumber();
     }

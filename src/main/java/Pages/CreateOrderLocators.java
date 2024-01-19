@@ -70,19 +70,22 @@ public class CreateOrderLocators {
     public void Scrolldown(){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 600);");
-        System.out.println("Scrolled");
+       // System.out.println("Scrolled");
     }
 
     public void LargeScrolling(){
         JavascriptExecutor scroll = (JavascriptExecutor) driver;
         scroll.executeScript("window.scrollBy(0, 1000);");
-        System.out.println("Scrolling");
+       // System.out.println("Scrolling");
     }
 
     public void getBorrowerInfo(String borrowName, String borrowEmail){
-        WebElement getBorrower = driver.findElement(By.id("ctl00_cphBody_txtBorrowerName"));
+        //sub-container vl-addedit
+    //    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+    //WebElement getBorrower =   wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".sub-container vl-addedit")));
+        WebElement getBorrower = driver.findElement(By.cssSelector("input#ctl00_cphBody_txtBorrowerName"));
         getBorrower.sendKeys(borrowName);
-        WebElement getBorrowerEmail = driver.findElement(By.id("ctl00_cphBody_txtBorrowerEmail"));
+        WebElement getBorrowerEmail = driver.findElement(By.cssSelector("input#ctl00_cphBody_txtBorrowerEmail"));
         getBorrowerEmail.sendKeys(borrowEmail);
     }
 
@@ -119,29 +122,6 @@ public class CreateOrderLocators {
     }
 
 
-    public void SelectClientComment(String appendedMsg){
-        //dropdown
-        WebElement getDefaultComment = driver.findElement(By.cssSelector("select#ctl00_cphBody_drpCommonResponse"));
-        getDefaultComment.click();
-        WebElement getDropDownMsg = driver.findElement(By.cssSelector("select#ctl00_cphBody_drpCommonResponse Option[value='89']"));
-        getDropDownMsg.click();
-
-        //find and check checkbox
-        WebElement selectAppendbtn = driver.findElement(By.cssSelector("input#ctl00_cphBody_chkAppendText"));
-        selectAppendbtn.click();
-
-       //fetch Current text found after dropdown was selected
-        WebElement getMsgBox = driver.findElement(By.cssSelector("textarea#ctl00_cphBody_txtComments"));
-        if(!getMsgBox.getText().isEmpty()){
-            getMsgBox.sendKeys(selectAppendbtn.getText());
-            getMsgBox.sendKeys(" ");
-            getMsgBox.sendKeys(appendedMsg);
-        }
-        else if(getMsgBox.getText().isEmpty()){
-            getMsgBox.sendKeys(appendedMsg);
-        }
-    }
-
     public void selectSupportingDoc(){
       //  WebElement selectDoc = driver.findElement(By.xpath("//label[text()='No']"));
         WebElement selectDoc = driver.findElement(By.cssSelector("input#ctl00_cphBody_rdoLstSupportingDocuments_1[value='NO']"));
@@ -153,6 +133,7 @@ public class CreateOrderLocators {
     public void chooseContinue(){
         WebElement chooseCont = driver.findElement(By.cssSelector("input#ctl00_cphBody_btnContinue[value='Continue']"));
         chooseCont.click();
+
     }
 
     public void selectPaymentMethod(){
@@ -192,7 +173,8 @@ public class CreateOrderLocators {
 
 
     public void SignOut(){
-        WebElement clickSettingBtn = driver.findElement(By.cssSelector("ul#nav.vl-nav.dropdown li.settingpos"));
+       WebElement clickSettingBtn = driver.findElement(By.cssSelector("li.settingpos"));
+      //  WebElement clickSettingBtn = driver.findElement(By.tagName("li.settingpos"));
         clickSettingBtn.click();
         WebElement pressSignout = driver.findElement(By.linkText("Sign out"));
         pressSignout.click();

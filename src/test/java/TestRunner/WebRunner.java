@@ -12,9 +12,9 @@ import java.util.Calendar;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = {"src/test/resources/Features/"},
-glue ={"TestDefinitions"})
+glue ={"TestDefinitions"},
 //tags ="@smoke",
-       // plugin = {"json:target/cucumber.json","html:target/cucumber-html-report.html"})
+plugin = {"json:target/cucumber.json","html:target/cucumber-html-report.html"})
 
 public class WebRunner {
 
@@ -25,7 +25,7 @@ public class WebRunner {
         Calendar cal = Calendar.getInstance();
         ExtentReports extent;
                 String Path = "src/test/resources/ExtendReportResults/extendReport.html";
-        System.out.println(Path);
+     //   System.out.println(Path);
         extent = new ExtentReports();
     }
 }

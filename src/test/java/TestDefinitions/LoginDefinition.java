@@ -35,30 +35,22 @@ private WebDriverhooks driverhooks;
        loginloc.GetURL();
     }
 
-    @When("user enters username {string}")
+    @When("user enters UserName {string}")
     public void EnterUsername(String username){
         loginloc.GetuserName().sendKeys(username);
     }
 
-    @And("user enters password {string}")
+    @And("user enters Password {string}")
     public void EnterPassword(String password){
         loginloc.GetPassword().sendKeys(password);
     }
 
-    @Then("open Client Dashboard")
+    @Then("click Login to lead me to Client Dashboard")
     public void Login(){
         loginloc.GetLoginBtn().click();
         String expectedURL = "https://testazure5.spurams.com/LenderDashboard.aspx";
         String actualURL = driverhooks.getDriver().getCurrentUrl();
-        String currentURL = "https://testazure5.spurams.com/Login.aspx";
-        if(driverhooks.getDriver().getCurrentUrl().equals(currentURL)){
-            System.out.println("Invalid Login! Plz Retry login");
-        }
-        if(driverhooks.getDriver().getCurrentUrl().equals(expectedURL)){
-            System.out.println("Successful Login, Welcome to Dashboard");
-        }
-//      Assert.assertEquals("Invalid Credentials plz Retry Login", actualURL, currentURL);
-//        Assert.assertEquals("Successful Login, Welcome to Dashboard!", actualURL, expectedURL);
+       Assert.assertEquals("Successful Login!", expectedURL, actualURL);;
     }
 
 

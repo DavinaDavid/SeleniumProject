@@ -19,19 +19,14 @@ public class AdminReviewOrderDefinition {
     private WebDriverhooks driverhooks;
     public AdminReviewOrderDefinition() {
         driverhooks = WebDriverhooks.getInstance();
-    //    adminloc = new VendorAssignmentLocators(driverhooks.getDriver());
-       // loginLocators = new LoginLocators(driverhooks.getDriver());
         vendorLoc = new VendorRightsLocators(driverhooks.getDriver());
         adminReviewOrderLoc = new AdminReviewOrderLocators(driverhooks.getDriver());
 
-        //  createOrderLocators = new CreateOrderLocators(driverhooks.getDriver());
     }
 
-
-    @When("Admin Reviews Order")
+    @When("Admin Reviews Appraisal Report provided by Vendor")
     public void ReviewOrder(){
         adminReviewOrderLoc.ChooseReviewReportfromAction();
-
     }
 
 }
