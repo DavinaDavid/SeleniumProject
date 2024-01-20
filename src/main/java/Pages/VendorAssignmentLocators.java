@@ -70,9 +70,4 @@ public class VendorAssignmentLocators {
         System.out.println("my URL is: "+ myOrderURL);
         driver.get(myOrderURL);
     }
-    public void SigningOut(){
-        myCreateOrderData.SignOut();
-    }
-
-
 }

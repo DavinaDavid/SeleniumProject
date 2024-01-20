@@ -32,16 +32,12 @@ public class AdminReviewOrderLocators {
         WebElement yesAcceptReport = driver.findElement(By.cssSelector("input#ctl00_cphBody_rdoLstAcceptReject_0"));
         yesAcceptReport.click();
 
-        System.out.println("Yes is selected, to Accept Report");
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(60));
        WebElement checkMarkComplete =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ctl00_cphBody_chkMarkComplete']")));
         checkMarkComplete.click();
 
-        System.out.println("Checkbox Selected");
-
         myCreateOrderData.LargeScrolling();
-       // checkMarkComplete.click();
 
         WebElement CompleteOrder = driver.findElement(By.cssSelector("input#ctl00_cphBody_btnSubmit"));
         CompleteOrder.click();

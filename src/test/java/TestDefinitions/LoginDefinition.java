@@ -50,7 +50,7 @@ private WebDriverhooks driverhooks;
         loginloc.GetLoginBtn().click();
         String expectedURL = "https://testazure5.spurams.com/LenderDashboard.aspx";
         String actualURL = driverhooks.getDriver().getCurrentUrl();
-       Assert.assertEquals("Successful Login!", expectedURL, actualURL);;
+       Assert.assertEquals("Successful Login!", expectedURL, actualURL);
     }
 
 

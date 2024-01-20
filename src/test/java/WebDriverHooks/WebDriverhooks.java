@@ -1,6 +1,9 @@
 package WebDriverHooks;
 
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.BeforeAll;
 import org.checkerframework.checker.units.qual.C;
+import org.junit.AfterClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -20,11 +23,14 @@ public class WebDriverhooks {
         }
         return instance;
     }
+
     public WebDriver getDriver(){
         return driver;
     }
 
-    public void closeDriver(){
+
+    @AfterAll
+   static public void closeDriver(){
         if(driver!=null){
             driver.quit();
             driver = null;

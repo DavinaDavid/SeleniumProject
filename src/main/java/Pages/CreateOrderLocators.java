@@ -20,6 +20,11 @@ public class CreateOrderLocators {
         element.click();
     }
 
+    public void HomePage(){
+        WebElement homeBtn = driver.findElement(By.cssSelector("a#home"));
+        homeBtn.click();
+    }
+
 
     public WebElement GetCreateBtnFromDashboard(){
         WebElement Createbtn = driver.findElement(By.cssSelector("#ctl00_cphBody_divCreateOrderDD button"));
@@ -47,16 +52,20 @@ public class CreateOrderLocators {
     public WebElement SelectTransaction(){
         WebElement selectTransactionField = driver.findElement(By.id("ctl00_cphBody_drpTransactionType"));
         selectTransactionField.click();
-       // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
-      //  WebElement element = wait.until(ExpectedConditions.elementToBeClickable(selectTransactionField));
-        //element.click();
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+//        WebElement selectTransactionField = wait.until(ExpectedConditions.elementToBeClickable(By.id("ctl00_cphBody_drpTransactionType")));
+//        selectTransactionField.click();
         WebElement selectedTransaction = driver.findElement(By.cssSelector("#ctl00_cphBody_drpTransactionType Option[value='18']"));
         return selectedTransaction;
     }
 
     public WebElement SelectLoanType(){
         WebElement selectLoanType = driver.findElement(By.id("ctl00_cphBody_drpLoanType"));
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+//        WebElement selectLoanType = wait.until(ExpectedConditions.elementToBeClickable(By.id("ctl00_cphBody_drpLoanType")));
         selectLoanType.click();
+      //  WebElement selectLoanType = driver.findElement(By.id("ctl00_cphBody_drpLoanType"));
+      //  selectLoanType.click();
         WebElement selectedLoan = driver.findElement(By.cssSelector("#ctl00_cphBody_drpLoanType Option[value='7']"));
         return selectedLoan;
     }
@@ -76,31 +85,35 @@ public class CreateOrderLocators {
     public void LargeScrolling(){
         JavascriptExecutor scroll = (JavascriptExecutor) driver;
         scroll.executeScript("window.scrollBy(0, 1000);");
-       // System.out.println("Scrolling");
     }
 
     public void getBorrowerInfo(String borrowName, String borrowEmail){
-        //sub-container vl-addedit
-    //    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-    //WebElement getBorrower =   wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".sub-container vl-addedit")));
-        WebElement getBorrower = driver.findElement(By.cssSelector("input#ctl00_cphBody_txtBorrowerName"));
+      WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+      WebElement getBorrower =   wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input#ctl00_cphBody_txtBorrowerName")));
+     // WebElement getBorrower = driver.findElement(By.cssSelector("input#ctl00_cphBody_txtBorrowerName"));
         getBorrower.sendKeys(borrowName);
         WebElement getBorrowerEmail = driver.findElement(By.cssSelector("input#ctl00_cphBody_txtBorrowerEmail"));
         getBorrowerEmail.sendKeys(borrowEmail);
     }
 
 
-    public WebElement getPropertyType(){
-        WebElement propertyType = driver.findElement(By.id("ctl00_cphBody_drpPropertyType"));
+    public void getPropertyType(){
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+//        WebElement propertyType =  wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("select#ctl00_cphBody_drpPropertyType")));
+        WebElement propertyType = driver.findElement(By.cssSelector("select#ctl00_cphBody_drpPropertyType"));
         propertyType.click();
         WebElement selectProperty = driver.findElement(By.cssSelector("#ctl00_cphBody_drpPropertyType Option[value='2']"));
-        return selectProperty;
+        selectProperty.click();
 
     }
 
     public void PropertyAddress(String street, String city, String state, String zip){
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+       WebElement propertyStreet =  wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#ctl00_cphBody_txtPropertyAddress")));
+
+    //   WebElement propertyStreet = driver.findElement(By.cssSelector("#ctl00_cphBody_txtPropertyAddress"));
         //street
-        WebElement propertyStreet = driver.findElement(By.id("ctl00_cphBody_txtPropertyAddress"));
         propertyStreet.sendKeys(street);
         //city
         WebElement propertycity = driver.findElement(By.id("ctl00_cphBody_txtPropertyCity"));
@@ -113,7 +126,7 @@ public class CreateOrderLocators {
         WebElement propertyZip = driver.findElement(By.id("ctl00_cphBody_txtPropertyZip"));
         propertyZip.sendKeys(zip);
     }
-//
+
     public WebElement getProducts(){
         WebElement getProd = driver.findElement(By.id("ctl00_cphBody_drpAppraisalType"));
         getProd.click();
@@ -123,16 +136,14 @@ public class CreateOrderLocators {
 
 
     public void selectSupportingDoc(){
-      //  WebElement selectDoc = driver.findElement(By.xpath("//label[text()='No']"));
         WebElement selectDoc = driver.findElement(By.cssSelector("input#ctl00_cphBody_rdoLstSupportingDocuments_1[value='NO']"));
-       // selectDoc.click();
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",selectDoc);
         selectDoc.click();
     }
 
-    public void chooseContinue(){
+    public WebElement chooseContinue(){
         WebElement chooseCont = driver.findElement(By.cssSelector("input#ctl00_cphBody_btnContinue[value='Continue']"));
-        chooseCont.click();
+        return chooseCont;
 
     }
 
@@ -140,8 +151,7 @@ public class CreateOrderLocators {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.tagName("body")));
         WebElement selectPayment = driver.findElement(By.xpath("//label[text()='Invoice']"));
-      //  WebElement selectPay = driver.findElement(By.cssSelector("input#ctl00_cphBody_rdoPaymentMethods_0[value='invoice']"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",selectPayment);
+       ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",selectPayment);
         selectPayment.click();
 
     }
@@ -159,22 +169,15 @@ public class CreateOrderLocators {
         driver.get(myOrderURL);
     }
 
-
-  //  public static String AppraisalNumber = "";
-
     public void getAppraisalNumber(){
         WebElement ApprNumber = driver.findElement(By.cssSelector("span#ctl00_cphBody_lblAppraisalNumber"));
         String myOrderNumber =  ApprNumber.getText();
        System.out.println("AppraisalNumber is: "+ myOrderNumber);
-//       AppraisalNumber = myOrderNumber;
-//       System.out.println("ORDER: "+ AppraisalNumber);
-     //  return myOrderNumber;
     }
 
 
     public void SignOut(){
        WebElement clickSettingBtn = driver.findElement(By.cssSelector("li.settingpos"));
-      //  WebElement clickSettingBtn = driver.findElement(By.tagName("li.settingpos"));
         clickSettingBtn.click();
         WebElement pressSignout = driver.findElement(By.linkText("Sign out"));
         pressSignout.click();

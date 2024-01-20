@@ -6,7 +6,15 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+import static org.junit.Assert.*;
 
 
 public class CreateOrderDefinition {
@@ -19,12 +27,12 @@ public class CreateOrderDefinition {
         createOrderloc = new CreateOrderLocators(driverhooks.getDriver());
     }
 
-    @Given("Client Dashboard items are loaded")
+    @When("Client Dashboard items are loaded")
     public void ClickDashboardLoginBtn() {
         createOrderloc.LoadDashboard();
     }
 
-    @When("Client choose to Create Order from Dashboard")
+    @Then("Client choose to Create Order from Dashboard")
     public void ClickLoginFromDashboard() {
         createOrderloc.GetCreateBtnFromDashboard().click();
         //Select Appraisal OrderType
@@ -45,29 +53,29 @@ public class CreateOrderDefinition {
     }
 
 
-    @And("Transaction and Loan type is selected")
+    @And("Transaction type is selected")
     public void SelectTransactions() {
         createOrderloc.SelectTransaction().click();
         System.out.println("Transaction Selected");
 
+//        createOrderloc.SelectLoanType().click();
+//        System.out.println("LoanType Selected");
+
+    }
+
+    @And("Loan type is selected")
+    public void SelectLoanType(){
         createOrderloc.SelectLoanType().click();
         System.out.println("LoanType Selected");
 
     }
-
-//    @And("Loan type is selected")
-//    public void SelectLoanType(){
-//        createOrderloc.SelectLoanType().click();
-//        System.out.println("LoanType Selected");
-//
-//    }
 
     @And("Loan number is provided {string}")
     public void EnterLoanNumber(String LoanNo) {
         WebElement myLoanNo = createOrderloc.AddLoanNumber();
         myLoanNo.sendKeys(LoanNo);
         System.out.println("LoanNumber Entered");
-       // createOrderloc.Scrolldown();
+      // createOrderloc.Scrolldown();
     }
 
     @And("Borrower Information added {string}, {string}")
@@ -81,15 +89,15 @@ public class CreateOrderDefinition {
 
     @And("Property Type is chosen")
     public void SelectPropertyType() {
-        createOrderloc.getPropertyType().click();
+        createOrderloc.getPropertyType();
         System.out.println("Property Selected");
-        createOrderloc.Scrolldown();
+    //    createOrderloc.Scrolldown();
 
     }
 
     @And("Property Address Details are Provided as {string}, {string}, {string}, {string}")
     public void EnterPropertyAddress(String street, String city, String state, String zipcode) {
-        //  createOrderloc.Scrolldown();
+       // createOrderloc.Scrolldown();
         createOrderloc.PropertyAddress(street, city, state, zipcode);
         System.out.println("Complete Address Added");
         createOrderloc.Scrolldown();
@@ -110,14 +118,24 @@ public class CreateOrderDefinition {
     }
 
 
-    @And("Client selects Continue Button")
+    @Then("client selects Continue Button")
     public void SelectContinueBtn() {
-        createOrderloc.chooseContinue();
-        System.out.println("Continue Button Selected");
+
+        createOrderloc.chooseContinue().click();
+
+        WebElement PageHeading = driverhooks.getDriver().findElement(By.className("container-top-heading"));
+        String expectedHeading = "CONFIRM NEW APPRAISAL DETAILS";
+
+        assertEquals("Order Creation Processing", expectedHeading, PageHeading.getText());
     }
 
+    @Given("Back to Home Page")
+    public void MyHomePage(){
+        createOrderloc.HomePage();
+            }
 
-    @Then("client makes Payment")
+
+    @And("client makes Payment")
     public void SelectedPayment() {
         createOrderloc.selectPaymentMethod();
         System.out.println("Payment Selected");

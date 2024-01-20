@@ -18,23 +18,3 @@ Feature: Client Logins Credential Verification
     When user enters UserName "avclienthb2"
     And user enters Password "dev.1234"
     Then click Login to lead me to Client Dashboard
-
-
-
-#Scenario: Test for Un-Successful Login -Invalid Username
-#    Given user goes to URL
-#    When user enters username "admin"
-#    And user enters password "VLDir@23"
-#    Then open Dashboard
-#
-#  Scenario: Test for Un-Successful Login -Invalid Password
-#    Given user goes to URL
-#    When user enters username "amsadmin"
-#    And user enters password "admin123"
-#    Then open Dashboard
-#
-#  Scenario: Test for Un-Successful Login -Invalid Informations
-#    Given user goes to URL
-#    When user enters username "adminuser"
-#    And user enters password "admin123"
-#    Then open Dashboard

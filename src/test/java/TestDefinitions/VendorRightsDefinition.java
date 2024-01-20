@@ -1,24 +1,18 @@
 package TestDefinitions;
 
-import Pages.CreateOrderLocators;
 import Pages.LoginLocators;
 import Pages.VendorAssignmentLocators;
 import Pages.VendorRightsLocators;
 import WebDriverHooks.WebDriverhooks;
+import io.cucumber.java.AfterAll;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class VendorRightsDefinition {
     private VendorAssignmentLocators adminloc;
     private VendorRightsLocators vendorLoc;
     private LoginLocators loginLocators;
-  //  private CreateOrderLocators createOrderLocators;
 
     private WebDriverhooks driverhooks;
     public VendorRightsDefinition() {
@@ -26,7 +20,6 @@ public class VendorRightsDefinition {
         adminloc = new VendorAssignmentLocators(driverhooks.getDriver());
         loginLocators = new LoginLocators(driverhooks.getDriver());
         vendorLoc = new VendorRightsLocators(driverhooks.getDriver());
-      //  createOrderLocators = new CreateOrderLocators(driverhooks.getDriver());
     }
 
     @Given("user looks for Assigned Order")
@@ -59,6 +52,5 @@ public class VendorRightsDefinition {
         vendorLoc.UploadAppraisalReport();
         System.out.println("File Submitted");
     }
-
 
 }

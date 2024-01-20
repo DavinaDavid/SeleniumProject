@@ -11,7 +11,7 @@ public class ExtendReportManager {
 
     public static synchronized ExtentReports getExtentReports(){
         if (extent == null){
-            ExtentSparkReporter sparkReporter = new ExtentSparkReporter("src/test/resources/ExtendReportResults/extendReport.html");
+            ExtentSparkReporter sparkReporter = new ExtentSparkReporter("extendReport.html");
       //  ExtentSparkReporter sparkReporter = new ExtentSparkReporter("extendReport.html");
        //     ExtentSparkReporter sparkReporter = new ExtentSparkReporter("src/test/resources/ExtendReportResults/extendReport.html");
 
