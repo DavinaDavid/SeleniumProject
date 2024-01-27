@@ -19,8 +19,8 @@ Feature: Vendor Logins and Perform Actions
 
  Scenario: Admin user re-logins to view Order Activities
     Given user goes to URL
-    When user enters UserName "amsadmin"
-    And user enters Password "VLDir@23"
+    When user enters UserName "adminuser"
+    And user enters Password "dev.123"
     Then click Login to access user Dashboard
 
   Scenario: Admin Review Vendor Report and Complete Order
