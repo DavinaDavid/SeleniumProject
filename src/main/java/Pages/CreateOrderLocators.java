@@ -109,7 +109,7 @@ public class CreateOrderLocators {
 
     public void PropertyAddress(String street, String city, String state, String zip){
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
        WebElement propertyStreet =  wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#ctl00_cphBody_txtPropertyAddress")));
 
     //   WebElement propertyStreet = driver.findElement(By.cssSelector("#ctl00_cphBody_txtPropertyAddress"));

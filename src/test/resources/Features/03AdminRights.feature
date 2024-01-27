@@ -3,8 +3,8 @@ Feature: Admin Logins and Assign Order to Vendor
 
 Background: Test for Successful Login of Admin user
     Given user goes to URL
-    When user enters UserName "amsadmin"
-    And user enters Password "VLDir@23"
+    When user enters UserName "adminuser"
+    And user enters Password "dev.123"
     Then click Login to access user Dashboard
 
 

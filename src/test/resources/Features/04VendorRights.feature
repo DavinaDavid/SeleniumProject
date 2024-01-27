@@ -3,7 +3,7 @@ Feature: Vendor Logins and Perform Actions
 
   Scenario: Test for Successful Login of Vendor user
     Given user goes to URL
-    When user enters UserName "bidamc2"
+    When user enters UserName "newVendor45"
     And user enters Password "dev.123"
     Then click Login to access user Dashboard
 

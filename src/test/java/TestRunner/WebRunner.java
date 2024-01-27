@@ -20,9 +20,9 @@ public class WebRunner {
 
     @BeforeClass
     public static void PathFolderCreation(){
-//        DateFormat timeFormat = new SimpleDateFormat("HH.mm.ss");
-//        DateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");
-//        Calendar cal = Calendar.getInstance();
+        DateFormat timeFormat = new SimpleDateFormat("HH.mm.ss");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");
+        Calendar cal = Calendar.getInstance();
         ExtentReports extent;
                 String Path = "src/test/resources/TestReportResults/extendReport.html";
      //   System.out.println(Path);

@@ -55,7 +55,7 @@ public class VendorRightsLocators {
 
         //Pick Inspection Date and Time
         WebElement datePicker = driver.findElement(By.cssSelector("input#ctl00_cphBody_txtInspectionDate"));
-        datePicker.sendKeys("1/27/2024");
+        datePicker.sendKeys("2/27/2024");
         datePicker.sendKeys(Keys.ENTER);
 
         WebElement selectTime = driver.findElement(By.id("ctl00_cphBody_drpInspectionTime"));
